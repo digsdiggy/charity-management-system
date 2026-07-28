@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html><header><meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<img src="https://res.cloudinary.com/dshto9bis/image/upload/f_auto,q_auto/IMG_5347_pd4krs"
+class="logo">
+
+<div>
+<h1>CHARITY MANAGEMENT SYSTEM</h1>
+<p>Scottish Charity No: SC055507</p>
+</div>
+
+</header>
+
+<div id="loginBox">
+
+<h2>Login</h2>
+
+
+<input id="loginEmail"
+type="email"
+placeholder="Email">
+
+
+<input id="loginPassword"
+type="password"
+placeholder="Password">
+
+
+<button id="loginButton">
+Login
+</button>
+
+
+
+</div>
+
+<div id="app" class="hidden">
+
+
+<header>
+
+<h2 id="welcome"></h2>
+
+<p id="roleDisplay"></p>
+
+<button onclick="logout()">
+Logout
+</button>
+
+</header>
+
+
+
+<nav id="menu"></nav>
+
+<section id="dashboard" class="page hidden">
+
+<h2>
+Dashboard
+</h2>
+
+
+<div id="dashboardContent">
+
+<div class="cards">
+<div class="card" onclick="showPage('users')">
+
+<h3>
+Users
+</h3>
+
+<p>
+Manage users
+</p>
+
+</div>
+
+
+
+<div class="card" onclick="showPage('trustees')">
+
+<h3>
+Trustees
+</h3>
+
+<p>
+Manage trustees
+</p>
+
+</div>
+
+<div class="card" onclick="showPage('meetings')">
+
+<h3>
+Meetings
+</h3>
+
+<p>
+Manage meetings
+</p>
+
+</div>
+
+
+
+<div class="card" onclick="showPage('finance')">
+
+<h3>
+Finance
+</h3>
+
+<p>
+Manage transactions
+</p>
+
+</div>
+
+
+
+<div class="card" onclick="showPage('projects')">
+
+<h3>
+Projects
+</h3>
+
+<p>
+Manage projects
+</p>
+
+</div>
+  <div class="card" onclick="showPage('outreach')">
+<h2>
+Community Outreach
+</h2>
+<p>
+Manage Activities
+</p>
+</div>
+<div class="card" onclick="showPage('technology')">
+<h2>
+Technology Support
+</h2>
+<p>
+Technology Support Management
+</p>
+</div>
+  
+<div class="card" onclick="showPage('assets')">
+<h2>
+Assets
+</h2>
+<p>
+Asset Management
+</p>
+</div>
+<div class="card" onclick="showPage('grants')">
+<h2>
+Grant and Funding
+</h2>
+<p>
+Grant and Funds Management
+</p>
+</div>  
+ <div class="card" onclick="showPage('documents')">
+<h2>
+Documents
+</h2>
+<p>
+Documents Management
+</p>
+</div> 
+<div class="card" onclick="showPage('beneficiaries')">
+
+<h2>
+Beneficiaries
+</h2>
+
+<p>
+Manage Beneficiaries
+</p>
+
+</div>  
+<div class="card" onclick="showPage('reports')">
+<h2>
+Reports
+</h2>
+<p>
+Reports Management
+</p>
+</div>
+  
+<div class="card" onclick="showPage('audit')">
+
+<h3>
+Audit
+</h3>
+
+<p>
+View audit logs
+</p>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+<section id="meetings" class="page hidden">
+
+<h2>
+Meetings Management
+</h2>
+
+
+<button onclick="showPage('dashboard')">
+
+← Back to Dashboard
+
+</button>
+
+
+<hr>
+
+
+<h3>
+Create Meeting
+</h3>
+
+
+<input id="meetingTitle"
+placeholder="Meeting Title">
+
+
+
+<input id="meetingDate"
+type="date">
+
+
+
+<input id="meetingLocation"
+placeholder="Location">
+
+
+
+<input id="meetingAttendees"
+placeholder="Attendees">
+
+
+
+<textarea id="meetingMinutes"
+placeholder="Meeting Minutes"></textarea>
+
+
+
+<textarea id="meetingDecisions"
+placeholder="Decisions"></textarea>
+
+
+
+<button onclick="addMeeting()">
+
+Save Meeting
+
+</button>
+
+
+<hr>
+
+
+<h3>
+Meeting Records
+</h3>
+
+
+<table border="1" width="100%">
+
+<thead>
+
+<tr>
+
+<th>Title</th>
+
+<th>Date</th>
+
+<th>Location</th>
+
+<th>Attendees</th>
+
+<th>Minutes</th>
+
+<th>Decisions</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="meetingTable">
+
+</tbody>
+
+
+</table>
+
+
+</section>
+
+<section id="finance" class="page hidden">
+
+<h2>
+Finance Management
+</h2>
+
+
+<button onclick="showPage('dashboard')">
+
+← Back to Dashboard
+
+</button>
+
+
+<hr>
+
+
+<h3>
+Add Transaction
+</h3>
+
+
+<label>Transaction Type</label>
+
+<select id="transactionType" onchange="loadTransactionCategories()">
+
+<option value="">
+Select Type
+</option>
+
+</select>
+
+
+<label for="transactionCategory">Category</label>
+
+
+<select id="transactionCategory">
+
+<option>
+Select Category
+</option>
+
+</select>
+
+
+<input id="transactionDescription"
+placeholder="Description">
+
+
+<input id="transactionAmount"
+type="number"
+placeholder="Amount">
+
+
+
+<input id="transactionDate"
+type="date">
+
+
+
+<input id="organisation"
+placeholder="Organisation">
+
+
+
+<input id="transactionAddress"
+placeholder="Address">
+
+
+
+<input id="transactionPhone"
+placeholder="Phone Number">
+
+
+
+<input id="transactionEmail"
+placeholder="Email">
+
+
+
+<button onclick="addTransaction()">
+
+Save Transaction
+
+</button>
+
+
+<hr>
+
+
+<h3>
+Transaction Records
+</h3>
+
+
+
+
+
+<table border="1" width="100%">
+
+<thead>
+
+<tr>
+
+<th>Type</th>
+
+<th>Category</th>
+
+<th>Description</th>
+
+<th>Amount</th>
+
+<th>Date</th>
+
+<th>Organisation</th>
+
+<th>Address</th>
+
+<th>Phone</th>
+
+<th>Email</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="transactionTable">
+
+</tbody>
+
+
+</table>
+
+
+</section>
+
+
+<section id="projects" class="page hidden">
+
+<h2>
+Projects Management
+</h2>
+
+
+<button onclick="showPage('dashboard')">
+
+← Back to Dashboard
+
+</button>
+
+
+<hr>
+
+
+<h3>
+Create New Project
+</h3>
+
+
+<input id="projectCode"
+placeholder="Project Code">
+
+
+<input id="projectName"
+placeholder="Project Name">
+
+
+<textarea id="projectDescription"
+placeholder="Project Description"></textarea>
+
+<label for="projectType">Project Type</label>  
+<select id="projectType">
+
+<option value="1">Internet Connectivity</option>
+
+<option value="2">Device Access</option>
+<option value="3">Digital Skills Training</option>
+  <option value="4">Digital Support</option>
+  
+</select>
+
+<label for="projectStatus">
+Project Status
+</label>  
+<select id="projectStatus">
+
+<option value="1">Planning</option>
+
+<option value="2">Active</option>
+
+<option value="3">Completed</option>
+  
+<option value="4">Cancelled</option>
+
+</select>
+
+
+<input id="projectLocation"
+placeholder="Location">
+
+<label for="projectManager">
+Project Manager Name
+</label>
+<input id="projectManager"
+placeholder="Enter project manager name">
+
+
+<input id="donorName"
+placeholder="Donor Name">
+
+
+<input id="grantReference"
+placeholder="Grant Reference">
+
+
+<label for="startDate">
+Start Date
+</label>
+
+<input id="startDate"
+type="date">
+
+
+
+<label for="plannedEndDate">
+Planned End Date
+</label>
+
+<input id="plannedEndDate"
+type="date">
+
+
+<button onclick="addProject()">
+
+Save Project
+
+</button>
+
+
+<hr>
+
+
+<h3>
+Project Records
+</h3>
+
+<table border="1" width="100%">
+
+<thead>
+
+<tr>
+
+<th>Code</th>
+
+<th>Name</th>
+
+<th>Description</th>
+
+<th>Type</th>
+
+<th>Status</th>
+
+<th>Location</th>
+
+<th>Manager</th>
+
+<th>Donor</th>
+
+<th>Grant Reference</th>
+
+<th>Start Date</th>
+
+<th>Planned End Date</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="projectTable">
+
+</tbody>
+
+</table>
+
+</section>
+
+<section id="users" class="page hidden">
+
+<h2>
+User Management
+</h2>
+
+
+<button onclick="showPage('dashboard')">
+
+← Back to Dashboard
+
+</button>
+
+
+<h3>Create New User</h3>
+
+<div class="form-card">
+
+<h3>Personal Details</h3>
+
+<label>First Name</label>
+<input id="newFirstName"
+placeholder="First Name">
+
+
+<label>Last Name</label>
+<input id="newLastName"
+placeholder="Last Name">
+
+
+<label>Date of Birth</label>
+<input id="newDOB"
+type="date">
+
+
+</div>
+
+
+<div class="form-card">
+
+<h3>Contact Details</h3>
+
+<label>Email</label>
+<input id="newEmail"
+type="email"
+placeholder="Email">
+
+
+<label>Phone Number</label>
+<input id="newPhone"
+placeholder="Phone Number">
+
+</div>
+<div class="form-card">
+
+<h3>Address</h3>
+
+<label>Address Line 1</label>
+<input id="newAddress1"
+placeholder="House number and street">
+
+
+<label>Address Line 2</label>
+<input id="newAddress2"
+placeholder="Apartment, area, village (optional)">
+
+
+<label>Town / City</label>
+<input id="newTown"
+placeholder="Town or City">
+
+
+<label>County</label>
+<input id="newCounty"
+placeholder="County">
+
+
+<label>Postcode</label>
+<input id="newPostcode"
+placeholder="Postcode">
+
+
+<label>Country</label>
+<input id="newCountry"
+value="United Kingdom"
+placeholder="Country">
+
+</div>
+
+
+<div class="form-card">
+
+<h3>Role & Responsibilities</h3>
+
+
+<label>Role</label>
+
+<select id="newRole">
+
+<option>
+Loading roles...
+</option>
+
+</select>
+
+<label>Responsibility</label>
+
+<input id="newResponsibility"
+placeholder="Responsibility">
+
+
+</div>
+<button onclick="createUser()">
+
+Create User
+
+</button>
+
+
+
+<hr>
+
+
+<h3>
+Existing Users
+</h3>
+
+
+<table border="1" width="100%">
+
+<thead>
+
+<tr>
+
+<th>First Name</th>
+
+<th>Last Name</th>
+
+<th>Date of Birth</th>
+
+<th>Email</th>
+
+<th>Phone Number</th>
+
+<th>Address Line 1</th>
+
+<th>Address Line 2</th>
+
+<th>Town / City</th>
+
+<th>County</th>
+
+<th>Postcode</th>
+
+<th>Country</th>
+
+<th>Role</th>
+
+<th>Responsibility</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="usersTable">
+
+</tbody>
+
+</table>
+
+</section>
+
+<section id="trustees" class="page hidden">
+
+<h2>
+Trustees Management
+</h2>
+
+
+<button onclick="showPage('dashboard')">
+
+← Back to Dashboard
+
+</button>
+
+
+<hr>
+
+
+<h3>
+Add New Trustee
+</h3>
+
+
+<input id="trusteeFirstName"
+placeholder="First Name">
+
+
+<input id="trusteeLastName"
+placeholder="Last Name">
+
+
+<input id="trusteeEmail"
+placeholder="Email">
+
+
+<input id="trusteePhone"
+placeholder="Phone Number">
+
+<label for="trustees">Date of Birth</label>
+<input id="trusteeDOB"
+type="date"
+placeholder="Date of Birth">
+
+
+<div class="form-card">
+
+<h3>Address</h3>
+
+<label>Address Line 1</label>
+<input id="trusteeAddress1"
+placeholder="House number and street">
+
+
+<label>Address Line 2</label>
+<input id="trusteeAddress2"
+placeholder="Apartment, area, village (optional)">
+
+
+<label>Town / City</label>
+<input id="trusteeTown"
+placeholder="Town or City">
+
+
+<label>County</label>
+<input id="trusteeCounty"
+placeholder="County">
+
+
+<label>Postcode</label>
+<input id="trusteePostcode"
+placeholder="Postcode">
+
+
+<label>Country</label>
+<input id="trusteeCountry"
+value="United Kingdom"
+placeholder="Country">
+
+</div>
+
+<label for="trusteeRole">
+Trustee Role
+</label>
+<select id="trusteeRole">
+
+<option value="Trustee">
+Trustee
+</option>
+
+<option value="Chairperson">
+Chairperson
+</option>
+
+<option value="Secretary">
+Secretary
+</option>
+
+<option value="Treasurer">
+Treasurer
+</option>
+
+</select>
+
+
+<label for="trusteeStatus">
+Status
+</label>
+<select id="trusteeStatus">
+
+<option value="Active">
+Active
+</option>
+
+<option value="Inactive">
+Inactive
+</option>
+
+</select>
+
+
+
+<button onclick="addTrustee()">
+
+Save Trustee
+
+</button>
+
+
+
+<hr>
+
+
+<h3>
+Trustee Records
+</h3>
+
+
+
+<table border="1" width="100%">
+
+
+<thead>
+
+<tr>
+
+<th>First Name</th>
+<th>Last Name</th>
+<th>Email</th>
+<th>Mobile Phone Number</th>
+<th>Date of Birth</th>
+<th>Address Line 1</th>
+<th>Address Line 2</th>
+<th>Town/City</th>
+<th>County</th>
+<th>Postcode</th>
+<th>Country</th>
+<th>Trustee Role</th>
+<th>Status</th>
+
+</tr>
+
+</thead>
+
+
+
+<tbody id="trusteeTable">
+
+</tbody>
+
+
+</table>
+</section>
+
+<section id="beneficiaries" class="page hidden">
+
+<h2>
+Beneficiary Management
+</h2>
+
+
+<button onclick="showPage('dashboard')">
+← Back to Dashboard
+</button>
+
+<label for="beneficiaryName">
+Full Name
+</label>
+
+<input id="beneficiaryName"
+placeholder="Enter full name">
+
+
+<label for="beneficiaryEmail">
+Email Address
+</label>
+
+<input id="beneficiaryEmail"
+type="email"
+placeholder="Enter email address">
+
+
+<label for="beneficiaryMobile">
+Mobile Phone Number
+</label>
+
+<input id="beneficiaryMobile"
+placeholder="Enter mobile phone number">
+
+
+<label for="beneficiaryDOB">
+Date of Birth
+</label>
+
+<input id="beneficiaryDOB"
+type="date">
+
+
+<h3>Address Details</h3>
+
+
+<label for="beneficiaryAddress1">
+Address Line 1
+</label>
+
+<input id="beneficiaryAddress1"
+placeholder="House number and street">
+
+
+<label for="beneficiaryAddress2">
+Address Line 2
+</label>
+
+<input id="beneficiaryAddress2"
+placeholder="Apartment, area, village (optional)">
+
+
+<label for="beneficiaryTown">
+Town / City
+</label>
+
+<input id="beneficiaryTown"
+placeholder="Town or City">
+
+
+<label for="beneficiaryCounty">
+County
+</label>
+
+<input id="beneficiaryCounty"
+placeholder="County">
+
+
+<label for="beneficiaryPostcode">
+Postcode
+</label>
+
+<input id="beneficiaryPostcode"
+placeholder="Postcode">
+
+
+<label for="beneficiaryCountry">
+Country
+</label>
+
+<input id="beneficiaryCountry"
+value="United Kingdom"
+placeholder="Country">
+
+
+<h3>Support Information</h3>
+
+
+<label for="beneficiaryNeed">
+Support Required
+</label>
+
+<input id="beneficiaryNeed"
+placeholder="Describe support required">
+
+
+<label for="beneficiaryProject">
+Project
+</label>
+
+<input id="beneficiaryProject"
+placeholder="Related project">
+
+<button onclick="addBeneficiary()">
+Save Beneficiary
+</button>
+
+
+<table border="1" width="100%">
+
+<thead>
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Mobile Phone</th>
+<th>Date of Birth</th>
+<th>Address Line 1</th>
+<th>Address Line 2</th>
+<th>Town/City</th>
+<th>County</th>
+<th>Postcode</th>
+<th>Country</th>
+<th>Support Required</th>
+<th>Project</th>
+<th>Action</th>
+
+</tr>
+</thead>
+
+<tbody id="beneficiaryTable">
+
+</tbody>
+
+</table>
+
+</section>
+
+<section id="technology" class="page hidden">
+
+<h2>Technology Support</h2>
+
+<button onclick="showPage('dashboard')">
+← Back to Dashboard
+</button>
+
+<hr>
+
+<h3>Log Technical Issue</h3>
+
+<input id="issueTitle"
+placeholder="Issue Title">
+
+<input id="reportedBy"
+placeholder="Reported By">
+
+<input id="device"
+placeholder="Device / Equipment">
+
+<label>Priority</label>
+
+<select id="issuePriority">
+
+<option>Low</option>
+<option>Medium</option>
+<option>High</option>
+<option>Critical</option>
+
+</select>
+
+<label>Status</label>
+
+<select id="issueStatus">
+
+<option>Open</option>
+<option>In Progress</option>
+<option>Resolved</option>
+
+</select>
+
+<textarea id="resolution"
+placeholder="Resolution Notes"></textarea>
+
+<button onclick="addTechnicalIssue()">
+Save Issue
+</button>
+
+<hr>
+
+<h3>Support Log</h3>
+
+<table border="1" width="100%">
+
+<thead>
+
+<tr>
+
+<th>Issue</th>
+<th>Reported By</th>
+<th>Device</th>
+<th>Priority</th>
+<th>Status</th>
+<th>Resolution</th>
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="technologyTable">
+
+</tbody>
+
+</table>
+
+</section>
+<section id="assets" class="page hidden">
+
+<h2>Asset Management</h2>
+
+<button onclick="showPage('dashboard')">
+← Back to Dashboard
+</button>
+
+<hr>
+
+<h3>Add Asset</h3>
+
+<input id="assetName"
+placeholder="Asset Name">
+
+<input id="assetSerial"
+placeholder="Serial Number">
+
+<input id="assetType"
+placeholder="Asset Type">
+
+<input id="assetManufacturer"
+placeholder="Manufacturer">
+
+<input id="assetModel"
+placeholder="Model">
+
+<input id="assetLocation"
+placeholder="Location">
+
+<input id="assignedTo"
+placeholder="Assigned To">
+
+<label>Purchase Date</label>
+
+<input id="purchaseDate"
+type="date">
+
+<input id="purchasePrice"
+type="number"
+placeholder="Purchase Price">
+
+<label>Status</label>
+
+<select id="assetStatus">
+
+<option>Available</option>
+
+<option>Assigned</option>
+
+<option>Repair</option>
+
+<option>Disposed</option>
+
+</select>
+
+<textarea id="assetNotes"
+placeholder="Notes"></textarea>
+
+<button onclick="addAsset()">
+Save Asset
+</button>
+
+<hr>
+
+<h3>Asset Register</h3>
+
+<table border="1" width="100%">
+
+<thead>
+
+<tr>
+
+<th>Name</th>
+<th>Serial</th>
+<th>Type</th>
+<th>Manufacturer</th>
+<th>Model</th>
+<th>Location</th>
+<th>Assigned To</th>
+<th>Status</th>
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="assetTable">
+
+</tbody>
+
+</table>
+
+</section>
+<section id="grants" class="page hidden">
+
+<h2>
+Grants & Funding
+</h2>
+
+
+<button onclick="showPage('dashboard')">
+← Back
+</button>
+
+
+<input id="grantName"
+placeholder="Grant Name">
+
+
+<input id="donor"
+placeholder="Donor">
+
+
+<input id="grantAmount"
+placeholder="Amount">
+
+<label>Grant Start Date</label>
+<input id="grantStart"
+type="date">
+
+<label>Grant End Date</label>
+<input id="grantEnd"
+type="date">
+
+
+<button onclick="addGrant()">
+Save Grant
+</button>
+
+
+<table border="1" width="100%">
+
+<thead>
+<tr>
+<th>Grant Name</th>
+<th>Donor</th>
+<th>Amount</th>
+<th>Grant Start Date</th>
+<th>Grant End Date</th>
+<th>Action</th>
+</tr>
+
+</thead>
+
+<tbody id="grantTable">
+
+</tbody>
+
+</table>
+
+
+</section>
+
+
+ <section id="documents" class="page hidden">
+
+<h2>
+Documents Management
+</h2>
+
+
+<button onclick="showPage('dashboard')">
+← Back to Dashboard
+</button>
+
+
+<hr>
+
+
+<h3>
+Upload Document
+</h3>
+
+
+<label>
+Document Name
+</label>
+
+<input id="documentName"
+placeholder="Enter document name">
+
+
+<label>
+Document Type
+</label>
+
+<input id="documentType"
+placeholder="e.g. Policy, Minutes, Finance, Grant">
+
+
+<label>
+Select File From Device
+</label>
+
+<input 
+id="documentFile"
+type="file"
+accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png">
+
+
+<button onclick="addDocument()">
+Upload Document
+</button>
+
+
+<hr>
+
+
+<h3>
+Uploaded Documents
+</h3>
+
+
+<table border="1" width="100%">
+
+<thead>
+
+<tr>
+
+<th>Document Name</th>
+<th>Document Type</th>
+<th>File Name</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="documentTable">
+
+</tbody>
+
+
+</table>
+
+
+</section>
+
+  <section id="reports" class="page hidden">
+
+<h2>
+Reports Management
+</h2>
+
+
+<button onclick="showPage('dashboard')">
+← Back to Dashboard
+</button>
+
+
+<hr>
+
+
+<h3>
+Generate Reports
+</h3>
+
+
+<button onclick="generateFinanceReport()">
+Finance Report
+</button>
+
+
+<button onclick="generateProjectReport()">
+Project Report
+</button>
+
+
+<button onclick="generateOutreachReport()">
+Outreach Report
+</button>
+
+
+<button onclick="generateGrantReport()">
+Grant Funding Report
+</button>
+
+
+<hr>
+
+
+<h3>
+Report Results
+</h3>
+
+
+<div id="reportOutput">
+
+</div>
+
+
+</section>
+
+  
+<section id="outreach" class="page hidden">
+
+<h2>
+Community Outreach Management
+</h2>
+<p>Manage Activities</p>
+<button onclick="showPage('dashboard')">
+← Back to Dashboard
+</button>
+
+<hr>
+
+<h3>
+Add Outreach Activity
+</h3>
+
+<input id="activityName"
+placeholder="Activity Name">
+
+<label>Activity Date</label>
+<input id="activityDate"
+type="date">
+
+<input id="activityLocation"
+placeholder="Location">
+
+<input id="targetAudience"
+placeholder="Target Audience">
+
+<input id="participants"
+type="number"
+placeholder="Number of Participants">
+
+<textarea id="activityDescription"
+placeholder="Activity Description"></textarea>
+
+<textarea id="activityOutcome"
+placeholder="Outcome / Impact"></textarea>
+
+<button onclick="addOutreach()">
+Save Activity</button>
+
+<hr>
+
+<h3>
+Outreach Activities
+</h3>
+
+<table border="1" width="100%">
+
+<thead>
+
+<tr>
+
+<th>Activity</th>
+
+<th>Date</th>
+
+<th>Location</th>
+
+<th>Attendance</th>
+<th>Notes</th>
+
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="outreachTable">
+
+</tbody>
+
+</table>
+
+</section>
+
+
+<section id="audit" class="page hidden">
+
+<h2>
+Audit Logs
+</h2>
+
+
+<button onclick="showPage('dashboard')">
+
+← Back to Dashboard
+
+</button>
+
+
+<hr>
+
+
+<h3>
+System Activity History
+</h3>
+
+
+
+<table border="1" width="100%">
+
+
+<thead>
+
+<tr>
+
+<th>Date</th>
+
+<th>User</th>
+
+<th>Action</th>
+
+<th>Table</th>
+
+<th>Description</th>
+
+</tr>
+
+</thead>
+<tbody id="auditTable"></tbody>
+</table>
+</section>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+</body>
+</html>
